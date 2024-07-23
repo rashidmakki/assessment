@@ -1,7 +1,10 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { Button } from "react-bootstrap";
 
 
 export default function Home() {
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -12,6 +15,11 @@ export default function Home() {
       </Head>
       <main>
         <p> This is Home </p>
+        <div className="d-flex justify-items-center align-items-center">
+          <Button className="btn btn-dark" onClick={()=>{ router.push("/signup")}}>
+             Signup
+          </Button>
+        </div>
       </main>
     </>
   );
