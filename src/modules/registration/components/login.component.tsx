@@ -1,10 +1,13 @@
 import React, { ChangeEvent, useState } from 'react'
 import { Button, FormInput, FormItem, FormLabel, FormOption, FormSelect } from '../resgistration.styled'
 import Select from 'react-select';
-import '@/styles/Home.module.css';
 import { IRegistrationData } from '../types';
+import { useDispatch } from 'react-redux';
+import { callToSignup } from '../ducks/slice';
+import '@/styles/Home.module.css';
 
 function LoginForm() {
+    const dispatch = useDispatch();
     const [registerData, setRegisterData] = useState<IRegistrationData>({
         name:'',
         email:'',
@@ -45,6 +48,7 @@ function LoginForm() {
    
     const onSubmitHandler = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
+        dispatch(callToSignup(registerData))
     }
     const { name, email, password, phone, gender, address, city, state} = registerData;
   return (
