@@ -5,10 +5,9 @@ import { useDispatch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { editSchema } from '../ducks/validationSchema';
-import { IItem, IRegistrationData } from '@/modules/registration/types';
+import { IItem } from '@/modules/registration/types';
 import { FormError, FormInput, FormItem, FormOption } from '@/modules/registration/resgistration.styled';
 import { genderArray, states } from '@/common/constants';
-import Select from 'react-select';
 import { updateUser } from '../ducks/slice';
 
 function EditModal({show,handleClose, userDetails}:IEditModal) {
@@ -29,8 +28,8 @@ function EditModal({show,handleClose, userDetails}:IEditModal) {
     const city = watch('city')
     
     const onSubmitHandler = (formData:IUserData) => {
-       console.log(formData)
        dispatch(updateUser({user:formData}))
+       handleClose()
     }
 
      // Handle key down event
