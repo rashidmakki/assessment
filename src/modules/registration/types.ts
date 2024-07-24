@@ -6,5 +6,10 @@ export interface IRegistrationData{
     gender:string;
     address:string;
     city: string;
-    state: object | null
+    state:string 
+}
+
+export interface IItem{
+    value:string;
+    label:string;
 }

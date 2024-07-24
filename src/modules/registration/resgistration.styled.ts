@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const RegistrationContainer = styled.div`
-    height: 100vh;
-    width: 100vw;
-    margin: 0px;
-    padding: 0px;
-`
-
-
 export const Title = styled.h1`
   font-family: 'Gilroy';
   font-style: normal;
@@ -79,6 +71,18 @@ export const FormSelect = styled.select`
   &.dropdown{
   min-height: 2.4rem;
   }
+
+  &:focus {
+    border: 0.8px solid #3581fc;
+  }
+
+  &:disabled {
+    background: #f0f0f0;
+  }
+
+  &.error{
+    border: 0.8px solid red;
+  }
 `;
 
 export const FormOption = styled.option`
@@ -88,6 +92,12 @@ export const FormOption = styled.option`
   padding: 1.2rem;
   font-size: 1.4rem;
   outline: none;
+`;
+
+export const FormError = styled.p`
+  margin: 1rem 0 0 0;
+  color: red;
+  font-size: 1.4rem;
 `;
 
 export const FormTextArea = styled.textarea`
