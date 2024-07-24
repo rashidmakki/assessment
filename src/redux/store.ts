@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
 import signInSlice from '@/modules/registration/ducks/slice';
+import dashboardSlice from '@/modules/dashboard/ducks/slice';
 
 
 const saga = createSagaMiddleware()
 export const store = configureStore({
   reducer: {
     signIn: signInSlice,
+    dashboard: dashboardSlice
   },
   middleware: (gDM) => gDM().concat(saga)
 });

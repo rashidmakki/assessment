@@ -6,7 +6,16 @@ import Router from 'next/router';
 function* signUp(action: any){
     try{
     // const response = yield call(APIs.creatorSignup, action.payload);
-    localStorage.setItem("user_data", JSON.stringify(action.payload))
+    if(localStorage.getItem("user_data")){
+        let storedData = localStorage.getItem("user_data");
+        let storedArray = JSON.parse(storedData as string);
+        storedArray.push(action.payload);
+        localStorage.setItem("user_data", JSON.stringify(storedArray))
+    }else{
+        let data = [];
+        data.push(action.payload);
+        localStorage.setItem("user_data", JSON.stringify(data))
+    }
     Router.push("/dashboard")
     }catch(err:any){
       console.log(err.message)
